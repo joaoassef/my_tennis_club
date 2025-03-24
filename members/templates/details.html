@@ -1,0 +1,33 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Detalhes de {{ mymember.firstname }} {{ mymember.lastname }}
+{% endblock %}
+
+{% block content%}
+<div class="card mt-2">
+
+    <div class="card-header">
+        Details about {{ mymember.firstname}} {{mymember.lastname}}
+    </div>
+
+    <div class="card-body">
+    {% if mymember.foto %}
+        <p><img src="{{ mymember.foto.url }}" width="100"></p>
+        {% endif %}
+     <p>Phone {{mymember.phone}}</p>
+
+    {% if mymember.documento %}
+    <a href="{{ mymember.documento.url }}" target="_blank">Ver Documento</a>
+    <br><br>
+    {% endif %}
+
+    <p>Member since: {{ mymember.joined_date}}</p>
+
+    <p>Back to <a href="/members">Members</a></p>
+
+    </div>
+
+</div>
+
+{% endblock %}

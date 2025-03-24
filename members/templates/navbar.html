@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <!--<h1>My tennis Club</h1>-->
+            {% load static %}
+            <img src="{% static 'img/IFSP_Logo.jpg' %}" width="100"/>
+
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/members/">members</a>
+                </li>
+
+            </ul>
+        </div>
+        <form class="d-flex role=search" method="post" action="/members/busca/">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="busca" value="{{ texto_busca }}">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    </div>
+</nav>
